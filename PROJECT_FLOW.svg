@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1050" viewBox="0 0 1600 1050">
+ <defs>
+  <linearGradient id="paper" x2="0" y2="1"><stop stop-color="#fffef8"/><stop offset="1" stop-color="#f6f8ef"/></linearGradient>
+  <filter id="shade" x="-.15" y="-.15" width="1.3" height="1.4"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#45614d" flood-opacity=".12"/></filter>
+  <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#64866b"/></marker>
+  <marker id="arrBlue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#5880a5"/></marker>
+  <style>
+   text{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Noto Sans CJK TC',sans-serif}
+   .title{font-size:34px;font-weight:700;fill:#274b3a}.sub{font-size:16px;fill:#69806d}
+   .h{font-size:20px;font-weight:700;fill:#344d3c}.p{font-size:15px;fill:#536b59}.tiny{font-size:13px;fill:#5f7665}
+   .line{fill:none;stroke:#64866b;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arr)}
+   .dash{fill:none;stroke:#64866b;stroke-width:2.5;stroke-dasharray:8 7;marker-end:url(#arr)}
+   .blue{fill:none;stroke:#5880a5;stroke-width:2.5;stroke-linecap:round;marker-end:url(#arrBlue)}
+  </style>
+ </defs>
+ <rect x="0" y="0" width="1600" height="1050" rx="30" fill="#e7e9df"/>
+ <rect x="18" y="18" width="1564" height="1014" rx="24" fill="url(#paper)" stroke="#c9d3c5" stroke-width="2"/>
+ <text x="800" y="65" text-anchor="middle" class="title">貴賓送禮管理系統｜專案流程圖</text>
+ <text x="800" y="93" text-anchor="middle" class="sub">Spring Boot 網頁應用：管理貴賓、安排送禮、查詢與產出報表</text>
+
+ <!-- user -->
+ <g filter="url(#shade)"><rect x="52" y="172" width="190" height="200" rx="22" fill="#fff" stroke="#b9c9b5" stroke-width="2"/></g>
+ <circle cx="147" cy="238" r="43" fill="#f1dfc8"/><circle cx="147" cy="225" r="17" fill="#d39a72"/><path d="M113 269q34-43 68 0v13h-68z" fill="#72a895"/><path d="M93 300q54-42 108 0v15H93z" fill="#dcebe0"/>
+ <text x="147" y="344" text-anchor="middle" class="h">使用者</text>
+ <text x="147" y="363" text-anchor="middle" class="tiny">透過瀏覽器操作</text>
+
+ <!-- front end app -->
+ <rect x="300" y="130" width="750" height="274" rx="24" fill="#f4f8ed" stroke="#9bb99b" stroke-width="2.5"/>
+ <text x="330" y="168" class="h">網頁介面｜Spring Boot MVC + Thymeleaf</text>
+ <rect x="340" y="195" width="300" height="74" rx="15" fill="#fff" stroke="#c4d2c2" stroke-width="2"/>
+ <rect x="660" y="195" width="350" height="74" rx="15" fill="#fff" stroke="#c4d2c2" stroke-width="2"/>
+ <text x="490" y="226" text-anchor="middle" class="h">畫面模板</text><text x="490" y="250" text-anchor="middle" class="p">貴賓名冊・送禮清單・報表</text>
+ <text x="835" y="226" text-anchor="middle" class="h">Controller 控制器</text><text x="835" y="250" text-anchor="middle" class="p">接收表單、整理資料、回傳頁面</text>
+ <rect x="340" y="292" width="670" height="78" rx="15" fill="#e8f0fa" stroke="#a8bdd4" stroke-width="2"/>
+ <text x="675" y="324" text-anchor="middle" class="h">服務與資料存取</text><text x="675" y="350" text-anchor="middle" class="p">GiftOrderSearchService・GiftReportAiService・JPA Repository</text>
+ <path d="M242 263H300" class="line"/><text x="270" y="247" text-anchor="middle" class="tiny">HTTP</text>
+ <path d="M300 302H250" class="dash"/><text x="274" y="326" text-anchor="middle" class="tiny">畫面回應</text>
+
+ <!-- AI side -->
+ <rect x="1120" y="144" width="420" height="160" rx="22" fill="#fff5e5" stroke="#e2c184" stroke-width="2"/>
+ <text x="1150" y="181" class="h">AI 秘書話術（選用）</text>
+ <text x="1150" y="215" class="p">有效送禮明細 + Gemini API 金鑰</text>
+ <text x="1150" y="241" class="p">→ 產生繁體中文送禮問候</text>
+ <text x="1150" y="276" class="tiny">未符合條件時，頁面顯示提示訊息</text>
+ <path d="M1050 330H1080V224H1120" class="blue"/>
+
+ <!-- features panel -->
+ <rect x="1120" y="338" width="420" height="312" rx="22" fill="#fffaf0" stroke="#e2c184" stroke-width="2"/>
+ <text x="1150" y="378" class="h">專案功能</text>
+ <circle cx="1162" cy="414" r="13" fill="#5b977c"/><text x="1162" y="419" text-anchor="middle" style="font-size:12px;font-weight:700;fill:white">1</text>
+ <text x="1187" y="420" class="p">貴賓管理：新增、修改、封存與還原</text>
+ <circle cx="1162" cy="460" r="13" fill="#d39a50"/><text x="1162" y="465" text-anchor="middle" style="font-size:12px;font-weight:700;fill:white">2</text>
+ <text x="1187" y="466" class="p">送禮管理：選擇品項、設定數量並儲存</text>
+ <circle cx="1162" cy="506" r="13" fill="#648bb5"/><text x="1162" y="511" text-anchor="middle" style="font-size:12px;font-weight:700;fill:white">3</text>
+ <text x="1187" y="512" class="p">搜尋：依貴賓、聯絡資訊或禮品查找</text>
+ <circle cx="1162" cy="552" r="13" fill="#8b77ae"/><text x="1162" y="557" text-anchor="middle" style="font-size:12px;font-weight:700;fill:white">4</text>
+ <text x="1187" y="558" class="p">統計：篩選送禮清單並匯出 Excel</text>
+ <circle cx="1162" cy="598" r="13" fill="#cb806d"/><text x="1162" y="603" text-anchor="middle" style="font-size:12px;font-weight:700;fill:white">5</text>
+ <text x="1187" y="604" class="p">話術：AI 生成簡短、得體的問候</text>
+
+ <!-- process panel -->
+ <rect x="52" y="424" width="300" height="442" rx="22" fill="#fbfcf7" stroke="#c9d3c5" stroke-width="2"/>
+ <text x="82" y="466" class="h">流程說明</text>
+ <path d="M93 505V790" stroke="#9bb99b" stroke-width="3"/>
+ <g><circle cx="93" cy="510" r="15" fill="#5b977c"/><text x="93" y="515" text-anchor="middle" style="font-size:12px;font-weight:700;fill:white">1</text><text x="122" y="506" class="p">使用者開啟網頁</text><text x="122" y="528" class="tiny">選擇要使用的功能</text></g>
+ <g><circle cx="93" cy="570" r="15" fill="#648bb5"/><text x="93" y="575" text-anchor="middle" style="font-size:12px;font-weight:700;fill:white">2</text><text x="122" y="566" class="p">Controller 處理請求</text><text x="122" y="588" class="tiny">驗證欄位、整理操作資料</text></g>
+ <g><circle cx="93" cy="630" r="15" fill="#d39a50"/><text x="93" y="635" text-anchor="middle" style="font-size:12px;font-weight:700;fill:white">3</text><text x="122" y="626" class="p">讀取或儲存送禮資料</text><text x="122" y="648" class="tiny">透過 Spring Data JPA 存取</text></g>
+ <g><circle cx="93" cy="690" r="15" fill="#8b77ae"/><text x="93" y="695" text-anchor="middle" style="font-size:12px;font-weight:700;fill:white">4</text><text x="122" y="686" class="p">MySQL 保存資料</text><text x="122" y="708" class="tiny">貴賓名冊與送禮紀錄</text></g>
+ <g><circle cx="93" cy="750" r="15" fill="#cb806d"/><text x="93" y="755" text-anchor="middle" style="font-size:12px;font-weight:700;fill:white">5</text><text x="122" y="746" class="p">顯示結果或下載報表</text><text x="122" y="768" class="tiny">需要時呼叫 Gemini 生成話術</text></g>
+
+ <!-- backend and database -->
+ <rect x="410" y="470" width="640" height="185" rx="22" fill="#eef4fb" stroke="#8eaaca" stroke-width="2.5"/>
+ <text x="445" y="510" class="h">後端｜業務邏輯與資料處理</text>
+ <rect x="450" y="532" width="260" height="82" rx="15" fill="#fff" stroke="#b5c7d9" stroke-width="2"/>
+ <text x="580" y="566" text-anchor="middle" class="h">Controller / Service</text><text x="580" y="592" text-anchor="middle" class="tiny">驗證、搜尋、彙整、報表</text>
+ <rect x="750" y="532" width="260" height="82" rx="15" fill="#fff" stroke="#b5c7d9" stroke-width="2"/>
+ <text x="880" y="566" text-anchor="middle" class="h">Spring Data JPA</text><text x="880" y="592" text-anchor="middle" class="tiny">Repository 讀寫實體資料</text>
+ <path d="M710 573H750" class="blue"/>
+ <path d="M675 404V450H580V532" class="line"/>
+ <path d="M880 614V685" class="line"/>
+
+ <g filter="url(#shade)"><rect x="660" y="685" width="440" height="132" rx="22" fill="#e8f3ec" stroke="#8eb39a" stroke-width="2.5"/></g>
+ <ellipse cx="720" cy="724" rx="31" ry="12" fill="#639b79"/><path d="M689 724v44c0 8 14 14 31 14s31-6 31-14v-44" fill="#79ad8d"/><ellipse cx="720" cy="768" rx="31" ry="12" fill="#79ad8d"/>
+ <text x="900" y="730" text-anchor="middle" class="h">MySQL 資料庫</text><text x="900" y="760" text-anchor="middle" class="p">vip 貴賓資料・gift_order 送禮紀錄</text><text x="900" y="788" text-anchor="middle" class="tiny">Docker Compose 可啟動資料庫服務</text>
+
+ <!-- output -->
+ <path d="M1100 746H1120" class="line"/>
+ <rect x="1120" y="692" width="420" height="125" rx="22" fill="#eef6f0" stroke="#a8c6ad" stroke-width="2"/>
+ <text x="1330" y="735" text-anchor="middle" class="h">輸出與畫面結果</text>
+ <text x="1330" y="766" text-anchor="middle" class="p">搜尋結果・統計頁・Excel・AI 話術</text>
+ <path d="M1330 650V692" class="dash"/>
+
+ <!-- legend and deployment notes -->
+ <rect x="410" y="870" width="1130" height="98" rx="20" fill="#f8faf6" stroke="#d2dbcf" stroke-width="2"/>
+ <text x="442" y="908" class="h">圖例</text>
+ <path d="M530 902h75" class="line"/><text x="620" y="908" class="tiny">資料或控制流程</text>
+ <path d="M780 902h75" class="dash"/><text x="870" y="908" class="tiny">回傳／結果</text>
+ <path d="M1035 902h75" class="blue"/><text x="1125" y="908" class="tiny">服務呼叫</text>
+ <text x="442" y="945" class="tiny">部署設定另包含 Redis 與 Elasticsearch 容器；目前程式的搜尋流程直接讀取 MySQL。</text>
+ <text x="800" y="1006" text-anchor="middle" style="font-size:13px;fill:#879487">依專案程式與 Docker Compose 設定整理</text>
+</svg>

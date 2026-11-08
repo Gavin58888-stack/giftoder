@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: jpa
+  datasource:
+    url: "${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/gift_order?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Taipei&characterEncoding=UTF-8}"
+    username: ${SPRING_DATASOURCE_USERNAME:gift_order}
+    password: ${SPRING_DATASOURCE_PASSWORD:gift_order}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  ai:
+    model:
+      chat: ${SPRING_AI_MODEL_CHAT:none}
+    google:
+      genai:
+        api-key: ${AI_GOOGLE_GENAI_APIKEY}
+        chat:
+          model: gemini-3.5-flash-lite
