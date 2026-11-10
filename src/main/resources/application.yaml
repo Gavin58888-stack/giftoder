@@ -6,9 +6,17 @@ spring:
     username: ${SPRING_DATASOURCE_USERNAME:gift_order}
     password: ${SPRING_DATASOURCE_PASSWORD:gift_order}
     driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
   ai:
     model:
-      chat: ${SPRING_AI_MODEL_CHAT:none}
+      chat: ${SPRING_AI_MODEL_CHAT:google-genai}
     google:
       genai:
         api-key: ${AI_GOOGLE_GENAI_APIKEY}

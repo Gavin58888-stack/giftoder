@@ -1,5 +1,4 @@
 -- Ensure MySQL reads this UTF-8 seed file as UTF-8 rather than latin1.
-SET NAMES utf8mb4;
 
 INSERT INTO vip (name, title, phone, mobile, address, delivery_method)
 VALUES ('張總經理', 'ABC 科技', '02-23456789', '0912-345678', '台北市信義路五段7號', '宅配');
@@ -7,17 +6,6 @@ VALUES ('張總經理', 'ABC 科技', '02-23456789', '0912-345678', '台北市�
 INSERT INTO vip (name, title, phone, mobile, address, delivery_method)
 VALUES ('李董事長', 'XYZ 集團', '02-87654321', '0922-987654', '台北市大安區忠孝東路四段100號', '親送');
 
-
--- 修正既有資料庫中已存成亂碼的兩筆種子資料。
-UPDATE vip
-SET name = '張總經理', title = 'ABC 科技', phone = '02-23456789',
-    mobile = '0912-345678', address = '台北市信義路五段7號', delivery_method = '宅配'
-WHERE phone = '02-23456789';
-
-UPDATE vip
-SET name = '李董事長', title = 'XYZ 集團', phone = '02-87654321',
-    mobile = '0922-987654', address = '台北市大安區忠孝東路四段100號', delivery_method = '親送'
-WHERE phone = '02-87654321';
 
 -- 匯入「專題貴賓資料 - 工作表1.pdf」中的貴賓資料。
 INSERT INTO vip (name, title, phone, mobile, address, delivery_method)
