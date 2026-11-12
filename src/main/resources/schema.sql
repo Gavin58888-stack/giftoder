@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS vip (
     notes VARCHAR(500),                 -- 備註
     delivery_method VARCHAR(50),       -- 配送方式 (例如：親送、宅配、郵寄、其他)
     delivery_method_other VARCHAR(100),
-    in_cold_palace BOOLEAN NOT NULL DEFAULT FALSE -- 是否在冷宮名單
+    in_cold_palace BOOLEAN NOT NULL DEFAULT FALSE -- 是否已封存
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 
 -- 2. 送禮紀錄表

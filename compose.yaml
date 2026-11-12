@@ -4,13 +4,13 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/gift_order?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Taipei&characterEncoding=UTF-8
-      SPRING_DATASOURCE_USERNAME: gift_order
-      SPRING_DATASOURCE_PASSWORD: gift_order
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE:-gift_order}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Taipei&characterEncoding=UTF-8
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME:-gift_order}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD:-gift_order}
       SPRING_DATA_REDIS_HOST: redis
       SPRING_DATA_REDIS_PORT: 6379
       SPRING_ELASTICSEARCH_URIS: http://elasticsearch:9200
-      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      AI_GOOGLE_GENAI_APIKEY: ${AI_GOOGLE_GENAI_APIKEY}
       SPRING_AI_MODEL_CHAT: ${SPRING_AI_MODEL_CHAT:-none}
     depends_on:
       mysql:
@@ -24,10 +24,10 @@ services:
     image: mysql:8.4
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_0900_ai_ci
     environment:
-      MYSQL_DATABASE: gift_order
-      MYSQL_USER: gift_order
-      MYSQL_PASSWORD: gift_order
-      MYSQL_ROOT_PASSWORD: gift_order
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-gift_order}
+      MYSQL_USER: ${MYSQL_USER:-gift_order}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-gift_order}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-gift_order}
       TZ: Asia/Taipei
     ports:
       - "3306:3306"

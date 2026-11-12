@@ -1,4 +1,4 @@
--- Ensure MySQL reads this UTF-8 seed file as UTF-8 rather than latin1.
+
 
 INSERT INTO vip (name, title, phone, mobile, address, delivery_method)
 VALUES ('張總經理', 'ABC 科技', '02-23456789', '0912-345678', '台北市信義路五段7號', '宅配');

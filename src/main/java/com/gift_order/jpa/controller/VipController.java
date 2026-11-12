@@ -56,7 +56,7 @@ public class VipController {
                                     RedirectAttributes redirectAttributes) {
         Vip vip = vipRepository.findById(id).orElse(null);
         if (vip == null || !vip.isInColdPalace()) {
-            redirectAttributes.addFlashAttribute("errorMessage", "找不到這位冷宮貴賓，名單可能已更新。");
+            redirectAttributes.addFlashAttribute("errorMessage", "找不到這位封存貴賓，名單可能已更新。");
             return "redirect:/vips/cold-palace";
         }
         if (name.isBlank()) {
@@ -77,7 +77,7 @@ public class VipController {
         vip.setDeliveryMethod(deliveryMethod == null || deliveryMethod.isBlank() ? null : deliveryMethod.trim());
         vip.setDeliveryMethodOther("其他".equals(deliveryMethod) ? deliveryMethodOther.trim() : null);
         vipRepository.save(vip);
-        redirectAttributes.addFlashAttribute("successMessage", "冷宮貴賓的備註與配送方式已儲存。");
+        redirectAttributes.addFlashAttribute("successMessage", "封存貴賓的備註與配送方式已儲存。");
         return "redirect:/vips/cold-palace";
     }
 
@@ -149,7 +149,7 @@ public class VipController {
         var giftOrders = giftOrderRepository.findAllByVipId(id);
         giftOrders.forEach(order -> order.setSelected(false));
         giftOrderRepository.saveAll(giftOrders);
-        redirectAttributes.addFlashAttribute("successMessage", "貴賓已移入冷宮名單，資料仍會保留。");
+        redirectAttributes.addFlashAttribute("successMessage", "貴賓已封存，資料仍會保留。");
         return "redirect:/vips";
     }
 
@@ -158,7 +158,7 @@ public class VipController {
     public String restoreFromColdPalace(@RequestParam Long id, RedirectAttributes redirectAttributes) {
         Vip vip = vipRepository.findById(id).orElse(null);
         if (vip == null || !vip.isInColdPalace()) {
-            redirectAttributes.addFlashAttribute("errorMessage", "找不到這位冷宮貴賓，名單可能已更新。");
+            redirectAttributes.addFlashAttribute("errorMessage", "找不到這位封存貴賓，名單可能已更新。");
             return "redirect:/vips/cold-palace";
         }
 
