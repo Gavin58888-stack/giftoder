@@ -1,3 +1,4 @@
+SET NAMES utf8mb4;
 
 
 INSERT INTO vip (name, title, phone, mobile, address, delivery_method)

@@ -1,3 +1,4 @@
+SET NAMES utf8mb4;
 -- 統一資料庫預設字元集與排序規則。
 ALTER DATABASE gift_order CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 

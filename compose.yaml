@@ -1,10 +1,11 @@
+
 services:
   app:
     build: .
     ports:
-      - "8080:8080"
+      - "127.0.0.1:8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE:-gift_order}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Taipei&characterEncoding=UTF-8
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE:-gift_order}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Taipei&characterEncoding=UTF-8&connectionCollation=utf8mb4_0900_ai_ci
       SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME:-gift_order}
       SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD:-gift_order}
       SPRING_DATA_REDIS_HOST: redis
@@ -29,8 +30,6 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-gift_order}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-gift_order}
       TZ: Asia/Taipei
-    ports:
-      - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
       - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
@@ -44,8 +43,6 @@ services:
 
   redis:
     image: redis:7-alpine
-    ports:
-      - "6379:6379"
     volumes:
       - redis_data:/data
     healthcheck:
@@ -61,8 +58,6 @@ services:
       discovery.type: single-node
       xpack.security.enabled: "false"
       ES_JAVA_OPTS: -Xms512m -Xmx512m
-    ports:
-      - "9200:9200"
     volumes:
       - elasticsearch_data:/usr/share/elasticsearch/data
     healthcheck:
